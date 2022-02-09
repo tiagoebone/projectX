@@ -12,6 +12,7 @@ const Sobre = () => {
     >
       <img
         width={300}
+        alt=""
         src={
           "https://www.imagenspng.com.br/wp-content/uploads/2020/10/among-us-icon-png-02.png"
         }

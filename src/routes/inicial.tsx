@@ -1,6 +1,3 @@
-import { Button, Typography } from "@material-ui/core";
-import React from "react";
-
 const Inicial = () => {
   return (
     <div
@@ -15,6 +12,7 @@ const Inicial = () => {
     >
       <img
         width={500}
+        alt=""
         src={
           "https://imagensemoldes.com.br/wp-content/uploads/2020/04/Batata-Frita-PNG.png"
         }
