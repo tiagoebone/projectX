@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./Appa";
+import App from "./app";
 import Inicial from "./routes/inicial";
 import Sobre from "./routes/sobre";
 
