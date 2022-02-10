@@ -1,16 +1,43 @@
+import { Typography } from "@material-ui/core";
 import { Outlet, Link } from "react-router-dom";
+import "./app.css";
 
 export default function App() {
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
-      <h1 style={{ padding: "8px" }}>Projeto-X</h1>
+    <div className="App">
       <nav
         style={{
-          borderBottom: "solid 1px",
-          padding: "1rem",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
         }}
       >
-        <Link to="/sobre">Sobre</Link> | <Link to="/inicial">Inicial</Link>
+        <div
+          style={{
+            backgroundColor: "#777777",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            padding: "16px",
+          }}
+        >
+          <Link to="/sobre">
+            <Typography variant="h6">Sobre</Typography>
+          </Link>
+        </div>
+        <div
+          style={{
+            backgroundColor: "#777777",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            padding: "16px",
+          }}
+        >
+          <Link to="/inicial">
+            <Typography variant="h6">Inicial</Typography>
+          </Link>
+        </div>
       </nav>
       <Outlet />
     </div>
