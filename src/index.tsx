@@ -20,6 +20,7 @@ render(
         <Route path="inicial" element={<Inicial />} />
         <Route path="sobre" element={<Sobre />} />
       </Route>
+      <Route path="*" element={<div>Not found</div>} />
     </Routes>
   </BrowserRouter>,
   rootElement
