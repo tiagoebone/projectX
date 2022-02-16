@@ -1,6 +1,13 @@
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
-import { IconSearch, Logo, NavRoutes } from "./navbar.style";
+import {
+  IconMenu,
+  IconSearch,
+  IconSetting,
+  IconUser,
+  Logo,
+  NavRoutes,
+} from "./navbar.style";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -8,65 +15,134 @@ const Navbar = () => {
   return (
     <nav
       style={{
+        position: "fixed",
+        width: "100vw",
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundColor: "#343746",
-        padding: "16px",
         boxShadow: "0px 3px 10px 2px rgba(0,0,0,0.3)",
         zIndex: 9999,
       }}
     >
-      <Grid container>
-        <Grid item style={{ display: "flex", alignItems: "center" }}>
-          <Logo onClick={() => navigate("/")}>
-            <span>which is</span>
-          </Logo>
+      <Grid
+        container
+        style={{ width: "100%", maxWidth: "1174px", padding: "8px 16px" }}
+      >
+        <Grid
+          item
+          xs={12}
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <IconMenu />
+            </div>
+
+            <div style={{ marginLeft: "16px" }}>
+              <Logo onClick={() => navigate("/")}>
+                <span>which is</span>
+              </Logo>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              width: "60px",
+              justifyContent: "space-between",
+            }}
+          >
+            <NavRoutes onClick={() => navigate("/search")}>
+              <IconSearch />
+            </NavRoutes>
+            <NavRoutes onClick={() => alert("open user/login")}>
+              <IconUser />
+            </NavRoutes>
+          </div>
         </Grid>
         <Grid
           item
+          xs={12}
           style={{
-            marginLeft: window.innerWidth < 460 ? 0 : "48px",
+            height: "11px",
             display: "flex",
-            justifyContent: "center",
             alignItems: "center",
-            marginTop: window.innerWidth < 460 ? "16px" : 0,
-            width: window.innerWidth < 460 ? "100vw" : "fit-content",
+            justifyContent: "center",
+            padding: "0 3px",
           }}
         >
-          <Grid container style={{ justifyContent: "center" }}>
-            <NavRoutes item onClick={() => navigate("/home")}>
-              <span>Home</span>
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "#d4d4d4",
+            }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <div
+            style={{
+              justifyContent: "center",
+              padding: "4px 0px",
+              overflow: "auto",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <NavRoutes onClick={() => navigate("/home")}>
+              <span>All</span>
             </NavRoutes>
             <NavRoutes
-              item
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/home")}
             >
-              <span>Rankings</span>
+              <span>Games</span>
             </NavRoutes>
             <NavRoutes
-              item
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/about")}
+              onClick={() => navigate("/home")}
             >
-              <span>Vote</span>
+              <span>Celebrities</span>
             </NavRoutes>
             <NavRoutes
-              item
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/home")}
+            >
+              <span>Movies</span>
+            </NavRoutes>
+            <NavRoutes
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/home")}
+            >
+              <span>General</span>
+            </NavRoutes>
+            <NavRoutes
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/home")}
+            >
+              <span>Custom</span>
+            </NavRoutes>
+            <NavRoutes
               style={{ marginLeft: "16px" }}
               onClick={() => navigate("/about")}
             >
               <span>About</span>
             </NavRoutes>
-            <NavRoutes
-              item
-              style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/search")}
-            >
-              <IconSearch />
-            </NavRoutes>
-          </Grid>
+          </div>
         </Grid>
       </Grid>
     </nav>

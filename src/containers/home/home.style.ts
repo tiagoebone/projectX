@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Spin = styled.div`
-  min-height: calc(100vh - 78px);
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

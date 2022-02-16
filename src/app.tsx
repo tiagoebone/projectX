@@ -12,13 +12,15 @@ export default function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="search" element={<Search />} />
-            <Route path="*" element={<div>Not found</div>} />
-          </Routes>
+          <div className="content-pages">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="search" element={<Search />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+          </div>
         </Router>
       </div>
     </GlobalStatesProvider>

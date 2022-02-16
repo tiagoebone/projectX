@@ -8,8 +8,8 @@ export const IconSearch = styled(SearchIcon)`
 `;
 
 export const InputStyled = styled.div`
-  max-width: 600px;
-  width: 80vw;
+  max-width: 768px;
+  width: 85vw;
   display: flex;
   flex-direction: row;
   box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.4);
