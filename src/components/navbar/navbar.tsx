@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   IconMenu,
   IconSearch,
-  IconSetting,
   IconUser,
   Logo,
   NavRoutes,
