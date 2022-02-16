@@ -1,14 +1,9 @@
-import React from "react";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
-import { IconSearch, InputSearch, Logo, NavRoutes } from "./navbar.style";
-import useGlobalStates from "../../contexts/globalStates/hook/useGlobalStates";
+import { IconSearch, Logo, NavRoutes } from "./navbar.style";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { searchedState } = useGlobalStates();
-
-  const [showSearch, setShowSearch] = React.useState(false);
 
   return (
     <nav
@@ -33,39 +28,41 @@ const Navbar = () => {
           style={{
             marginLeft: "48px",
             display: "flex",
-            alignItems: "center",
           }}
         >
-          <Grid container spacing={3}>
-            <NavRoutes item xs={6} onClick={() => navigate("/home")}>
+          <Grid container>
+            <NavRoutes item onClick={() => navigate("/home")}>
               <span>Home</span>
             </NavRoutes>
-            <NavRoutes item xs={6} onClick={() => navigate("/about")}>
+            <NavRoutes
+              item
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/about")}
+            >
+              <span>Rankings</span>
+            </NavRoutes>
+            <NavRoutes
+              item
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/about")}
+            >
+              <span>Vote</span>
+            </NavRoutes>
+            <NavRoutes
+              item
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/about")}
+            >
               <span>About</span>
             </NavRoutes>
+            <NavRoutes
+              item
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/search")}
+            >
+              <IconSearch />
+            </NavRoutes>
           </Grid>
-        </Grid>
-        <Grid
-          item
-          style={{
-            marginLeft: "24px",
-            display: "flex",
-            alignItems: "center",
-          }}
-          onClick={() => setShowSearch(true)}
-        >
-          <IconSearch />
-          {showSearch && (
-            <InputSearch
-              name="search"
-              placeholder="Search"
-              color="primary"
-              autoFocus
-              fullWidth
-              onBlur={() => setShowSearch(false)}
-              onChange={(vl) => searchedState.setSearched(vl.target.value)}
-            />
-          )}
         </Grid>
       </Grid>
     </nav>

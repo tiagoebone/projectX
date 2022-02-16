@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Spin = styled.div`
-  background-color: #21222c;
   min-height: calc(100vh - 78px);
   display: flex;
   align-items: center;

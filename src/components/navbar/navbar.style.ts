@@ -1,7 +1,6 @@
 import Grid from "@mui/material/Grid";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
-import Input from "@mui/material/Input";
 
 export const Logo = styled.div`
   width: fit-content;
@@ -42,7 +41,7 @@ export const NavRoutes = styled(Grid)`
 
   &:hover {
     span {
-      color: #cbf;
+      color: #b0b2ff;
     }
   }
 `;
@@ -53,16 +52,6 @@ export const IconSearch = styled(SearchIcon)`
   transition: 200ms;
 
   &:hover {
-    color: #cbf;
-  }
-`;
-
-export const InputSearch = styled(Input)`
-  color: #dddddd;
-  font-size: 14px;
-  font-weight: 200;
-  :after {
-    border-bottom: 1px solid #fff;
-    content: "";
+    color: #b0b2ff;
   }
 `;
