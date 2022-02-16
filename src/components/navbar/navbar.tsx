@@ -26,11 +26,15 @@ const Navbar = () => {
         <Grid
           item
           style={{
-            marginLeft: "48px",
+            marginLeft: window.innerWidth < 460 ? 0 : "48px",
             display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: window.innerWidth < 460 ? "16px" : 0,
+            width: window.innerWidth < 460 ? "100vw" : "fit-content",
           }}
         >
-          <Grid container>
+          <Grid container style={{ justifyContent: "center" }}>
             <NavRoutes item onClick={() => navigate("/home")}>
               <span>Home</span>
             </NavRoutes>
