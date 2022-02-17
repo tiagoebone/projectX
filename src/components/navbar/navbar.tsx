@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
-import useElementScrollLeft from "../../hooks/useElementScrollLeft";
+import useElementScrollLeft from "../../hooks/useElementScroll";
 import {
   IconMenu,
   IconSearch,
