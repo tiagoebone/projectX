@@ -127,7 +127,7 @@ const Navbar = () => {
           <div
             ref={navRoutesWrapperRef}
             style={{
-              padding: "4px 0px",
+              padding: "8px 0px",
               display: "flex",
               flexDirection: "row",
               whiteSpace: "nowrap",
