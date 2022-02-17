@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, createSearchParams } from "react-router-dom";
 import useElementScrollLeft from "../../hooks/useElementScroll";
 import {
   IconMenu,
@@ -16,6 +16,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
+
+  const pushRoute = (
+    pathname: string,
+    queryTitle: string,
+    queryString: string
+  ) => {
+    navigate({
+      pathname: pathname,
+      search: `?${createSearchParams({
+        [queryTitle]: queryString,
+      })}`,
+    });
+  };
 
   return (
     <nav
@@ -125,42 +138,42 @@ const Navbar = () => {
           />
 
           <NavRoutesDivInside ref={navRoutesWrapperRef}>
-            <NavRoutes onClick={() => navigate("/home")}>
+            <NavRoutes onClick={() => pushRoute("home", "topic", "trending")}>
               <span>Trending</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "all")}
             >
               <span>All</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "games")}
             >
               <span>Games</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "celebrities")}
             >
               <span>Celebrities</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "movies")}
             >
               <span>Movies</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "general")}
             >
               <span>General</span>
             </NavRoutes>
             <NavRoutes
               style={{ marginLeft: "16px" }}
-              onClick={() => navigate("/home")}
+              onClick={() => pushRoute("home", "topic", "custom")}
             >
               <span>Custom</span>
             </NavRoutes>

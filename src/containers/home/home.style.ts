@@ -1,28 +1,15 @@
 import styled from "styled-components";
 
-export const Spin = styled.div`
-  min-height: 100%;
+export const HomeWrapper = styled.div`
+  margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
   span {
-    font-size: 18px;
+    font-size: 24px;
     color: #fff;
     margin-bottom: 48px;
-  }
-
-  img {
-    animation: spin-image-clockwise infinite 20s linear;
-  }
-
-  @keyframes spin-image-clockwise {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 `;
