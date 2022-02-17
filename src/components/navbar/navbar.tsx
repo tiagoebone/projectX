@@ -1,4 +1,6 @@
+import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
+import useElementScrollLeft from "../../hooks/useElementScrollLeft";
 import {
   IconMenu,
   IconSearch,
@@ -12,11 +14,13 @@ import {
 const Navbar = () => {
   const navigate = useNavigate();
 
+  const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
+
   return (
     <nav
       style={{
         position: "fixed",
-        width: "100%",
+        width: "100vw",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -25,14 +29,22 @@ const Navbar = () => {
         zIndex: 9999,
       }}
     >
-      <div
+      <Grid
+        container
         style={{
           width: "100%",
           maxWidth: "1174px",
-          margin: "8px 16px",
+          padding: "8px 16px",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Grid
+          item
+          xs={12}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -72,8 +84,10 @@ const Navbar = () => {
               <IconUser />
             </NavRoutes>
           </div>
-        </div>
-        <div
+        </Grid>
+        <Grid
+          item
+          xs={12}
           style={{
             height: "11px",
             display: "flex",
@@ -89,18 +103,30 @@ const Navbar = () => {
               backgroundColor: "#d4d4d4",
             }}
           />
-        </div>
-        <div style={{ position: "relative" }}>
-          <RightGradient />
-          <LeftGradient />
-          <div
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          style={{
+            position: "relative",
+          }}
+        >
+          <LeftGradient
             style={{
-              justifyContent: "center",
+              opacity: navRoutesWrapperScroll.scrollLeft > 2 ? 1 : 0,
+            }}
+          />
+          <RightGradient />
+
+          <div
+            ref={navRoutesWrapperRef}
+            style={{
               padding: "4px 0px",
               display: "flex",
               flexDirection: "row",
               whiteSpace: "nowrap",
               overflow: "auto",
+              // width: "800px",
             }}
           >
             <NavRoutes onClick={() => navigate("/home")}>
@@ -143,8 +169,8 @@ const Navbar = () => {
               <span>About</span>
             </NavRoutes>
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </nav>
   );
 };

@@ -89,6 +89,7 @@ export const RightGradient = styled.div`
 `;
 
 export const LeftGradient = styled.div`
+  transition: 400ms;
   position: absolute;
   top: 0;
   left: 0;
