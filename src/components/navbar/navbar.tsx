@@ -16,6 +16,8 @@ const Navbar = () => {
 
   const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
 
+  console.log(navRoutesWrapperScroll);
+
   return (
     <nav
       style={{
@@ -116,7 +118,11 @@ const Navbar = () => {
               opacity: navRoutesWrapperScroll.scrollLeft > 2 ? 1 : 0,
             }}
           />
-          <RightGradient />
+          <RightGradient
+            style={{
+              opacity: navRoutesWrapperScroll.scrollRight > 2 ? 1 : 0,
+            }}
+          />
 
           <div
             ref={navRoutesWrapperRef}
@@ -126,7 +132,6 @@ const Navbar = () => {
               flexDirection: "row",
               whiteSpace: "nowrap",
               overflow: "auto",
-              // width: "800px",
             }}
           >
             <NavRoutes onClick={() => navigate("/home")}>

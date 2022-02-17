@@ -80,6 +80,7 @@ export const IconUser = styled(AccountCircleIcon)`
 `;
 
 export const RightGradient = styled.div`
+  transition: 400ms;
   position: absolute;
   top: 0;
   right: 0;

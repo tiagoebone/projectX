@@ -2,6 +2,7 @@ import { useCallback, useState, useEffect } from "react";
 
 interface Scroll {
   scrollLeft: number;
+  scrollRight: number;
   scrollHeight: number;
 }
 
@@ -10,19 +11,26 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
   Scroll
 ] {
   const [ref, setRef] = useState<T | null>(null);
-  const [left, setLeft] = useState<Scroll>({
+  const [scroll, setScroll] = useState<Scroll>({
     scrollLeft: 0,
+    scrollRight: 0,
     scrollHeight: 0,
   });
 
   const handleScrollLeft = useCallback(() => {
-    setLeft({
-      scrollLeft: ref?.scrollLeft || 0,
-      scrollHeight: ref?.scrollHeight || 0,
-    });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref?.scrollLeft, ref?.scrollHeight, left]);
+    if (
+      ref?.scrollLeft !== undefined &&
+      ref?.scrollWidth !== undefined &&
+      ref?.scrollHeight !== undefined &&
+      ref?.offsetWidth !== undefined
+    ) {
+      setScroll({
+        scrollLeft: ref.scrollLeft,
+        scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
+        scrollHeight: ref.scrollHeight,
+      });
+    }
+  }, [ref?.scrollLeft, ref?.scrollHeight, ref?.scrollWidth, ref?.offsetWidth]);
 
   useEffect(() => {
     ref?.addEventListener("scroll", handleScrollLeft);
@@ -30,7 +38,7 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
     // eslint-disable-next-line
   }, [ref?.scrollLeft, ref?.scrollHeight]);
 
-  return [setRef, left];
+  return [setRef, scroll];
 }
 
 export default useElementScrollLeft;
