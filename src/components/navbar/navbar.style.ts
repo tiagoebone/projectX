@@ -98,3 +98,14 @@ export const LeftGradient = styled.div`
   width: 30px;
   background: linear-gradient(-90deg, rgba(255, 255, 255, 0), #343746);
 `;
+
+export const NavRoutesDivInside = styled.div`
+  padding: 8px 0px;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;

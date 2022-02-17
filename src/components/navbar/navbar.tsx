@@ -8,6 +8,7 @@ import {
   LeftGradient,
   Logo,
   NavRoutes,
+  NavRoutesDivInside,
   RightGradient,
 } from "./navbar.style";
 
@@ -124,17 +125,14 @@ const Navbar = () => {
             }}
           />
 
-          <div
-            ref={navRoutesWrapperRef}
-            style={{
-              padding: "8px 0px",
-              display: "flex",
-              flexDirection: "row",
-              whiteSpace: "nowrap",
-              overflow: "auto",
-            }}
-          >
+          <NavRoutesDivInside ref={navRoutesWrapperRef}>
             <NavRoutes onClick={() => navigate("/home")}>
+              <span>Trending</span>
+            </NavRoutes>
+            <NavRoutes
+              style={{ marginLeft: "16px" }}
+              onClick={() => navigate("/home")}
+            >
               <span>All</span>
             </NavRoutes>
             <NavRoutes
@@ -173,7 +171,7 @@ const Navbar = () => {
             >
               <span>About</span>
             </NavRoutes>
-          </div>
+          </NavRoutesDivInside>
         </Grid>
       </Grid>
     </nav>
