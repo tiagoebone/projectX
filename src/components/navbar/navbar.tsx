@@ -16,8 +16,6 @@ const Navbar = () => {
 
   const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
 
-  console.log(navRoutesWrapperScroll);
-
   return (
     <nav
       style={{
@@ -111,6 +109,8 @@ const Navbar = () => {
           xs={12}
           style={{
             position: "relative",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           <LeftGradient
