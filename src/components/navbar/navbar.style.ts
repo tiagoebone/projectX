@@ -100,7 +100,7 @@ export const LeftGradient = styled.div`
 `;
 
 export const NavRoutesDivInside = styled.div`
-  padding: 12px 0px 8px 0px;
+  padding: 16px 0px 16px 0px;
   display: flex;
   flex-direction: row;
   white-space: nowrap;

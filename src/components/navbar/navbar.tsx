@@ -35,7 +35,7 @@ const Navbar = () => {
         style={{
           width: "100%",
           maxWidth: "1174px",
-          padding: "8px 16px",
+          padding: "8px 16px 0 16px",
         }}
       >
         <Grid
@@ -44,6 +44,7 @@ const Navbar = () => {
           style={{
             display: "flex",
             justifyContent: "space-between",
+            padding: "0px 0px 6px 0px",
           }}
         >
           <div
@@ -90,11 +91,9 @@ const Navbar = () => {
           item
           xs={12}
           style={{
-            height: "11px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "0 3px",
           }}
         >
           <div
