@@ -1,5 +1,9 @@
 import Grid from "@mui/material/Grid";
-import { useNavigate, createSearchParams } from "react-router-dom";
+import {
+  useNavigate,
+  createSearchParams,
+  useSearchParams,
+} from "react-router-dom";
 import useElementScrollLeft from "../../hooks/useElementScroll";
 import {
   IconMenu,
@@ -13,6 +17,7 @@ import {
 } from "./navbar.style";
 
 const Navbar = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
@@ -138,40 +143,49 @@ const Navbar = () => {
           />
 
           <NavRoutesDivInside ref={navRoutesWrapperRef}>
-            <NavRoutes onClick={() => pushRoute("home", "topic", "trending")}>
+            <NavRoutes
+              selected={searchParams.get("topic") === "trending"}
+              onClick={() => pushRoute("home", "topic", "trending")}
+            >
               <span>Trending</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "all"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "all")}
             >
               <span>All</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "games"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "games")}
             >
               <span>Games</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "celebrities"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "celebrities")}
             >
               <span>Celebrities</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "movies"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "movies")}
             >
               <span>Movies</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "general"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "general")}
             >
               <span>General</span>
             </NavRoutes>
             <NavRoutes
+              selected={searchParams.get("topic") === "custom"}
               style={{ marginLeft: "16px" }}
               onClick={() => pushRoute("home", "topic", "custom")}
             >
