@@ -1,11 +1,12 @@
-import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
 import {
   IconMenu,
   IconSearch,
   IconUser,
+  LeftGradient,
   Logo,
   NavRoutes,
+  RightGradient,
 } from "./navbar.style";
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
     <nav
       style={{
         position: "fixed",
-        width: "100vw",
+        width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -24,15 +25,14 @@ const Navbar = () => {
         zIndex: 9999,
       }}
     >
-      <Grid
-        container
-        style={{ width: "100%", maxWidth: "1174px", padding: "8px 16px" }}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1174px",
+          margin: "8px 16px",
+        }}
       >
-        <Grid
-          item
-          xs={12}
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
             style={{
               display: "flex",
@@ -72,10 +72,8 @@ const Navbar = () => {
               <IconUser />
             </NavRoutes>
           </div>
-        </Grid>
-        <Grid
-          item
-          xs={12}
+        </div>
+        <div
           style={{
             height: "11px",
             display: "flex",
@@ -91,15 +89,18 @@ const Navbar = () => {
               backgroundColor: "#d4d4d4",
             }}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </div>
+        <div style={{ position: "relative" }}>
+          <RightGradient />
+          <LeftGradient />
           <div
             style={{
               justifyContent: "center",
               padding: "4px 0px",
-              overflow: "auto",
               display: "flex",
               flexDirection: "row",
+              whiteSpace: "nowrap",
+              overflow: "auto",
             }}
           >
             <NavRoutes onClick={() => navigate("/home")}>
@@ -142,8 +143,8 @@ const Navbar = () => {
               <span>About</span>
             </NavRoutes>
           </div>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
     </nav>
   );
 };
