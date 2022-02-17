@@ -84,7 +84,7 @@ export const RightGradient = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  height: 30px;
+  height: 100%;
   width: 30px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), #343746);
 `;
@@ -94,7 +94,7 @@ export const LeftGradient = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  height: 30px;
+  height: 100%;
   width: 30px;
   background: linear-gradient(-90deg, rgba(255, 255, 255, 0), #343746);
 `;
