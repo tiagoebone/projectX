@@ -7,7 +7,7 @@ import {
 import useElementScrollLeft from "../../hooks/useElementScroll";
 import {
   HeaderRightOptions,
-  IconMenu,
+  // IconMenu,
   IconSearch,
   IconUser,
   LeftGradient,
