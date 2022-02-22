@@ -38,6 +38,22 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
     // eslint-disable-next-line
   }, [ref?.scrollLeft, ref?.scrollHeight]);
 
+  useEffect(() => {
+    if (
+      ref?.scrollLeft !== undefined &&
+      ref?.scrollWidth !== undefined &&
+      ref?.scrollHeight !== undefined &&
+      ref?.offsetWidth !== undefined
+    ) {
+      setScroll({
+        scrollLeft: ref.scrollLeft,
+        scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
+        scrollHeight: ref.scrollHeight,
+      });
+    }
+    // eslint-disable-next-line
+  }, [ref?.scrollWidth]);
+
   return [setRef, scroll];
 }
 
