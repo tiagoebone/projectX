@@ -2,9 +2,7 @@ const Card = () => {
   return (
     <div
       style={{
-        maxWidth: "768px",
-        width: "85vw",
-        height: "140px",
+        height: "110px",
         backgroundColor: "#fff",
         borderRadius: "6px",
         padding: "4px",

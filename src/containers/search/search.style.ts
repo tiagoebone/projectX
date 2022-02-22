@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from "@mui/icons-material/Clear";
 
 export const IconSearch = styled(SearchIcon)`
   cursor: pointer;
@@ -7,9 +8,20 @@ export const IconSearch = styled(SearchIcon)`
   transition: 200ms;
 `;
 
+export const IconClear = styled(ClearIcon)`
+  cursor: pointer;
+  color: #343746;
+  transition: 200ms;
+
+  @media (hover: hover) {
+    &:hover {
+      color: #b0b2ff;
+    }
+  }
+`;
+
 export const InputStyled = styled.div`
   max-width: 768px;
-  width: 85vw;
   display: flex;
   flex-direction: row;
   box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.4);
@@ -19,6 +31,14 @@ export const InputStyled = styled.div`
   background-color: #fff;
 
   .startAdorment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+  }
+
+  .endAdorment {
     display: flex;
     justify-content: center;
     align-items: center;

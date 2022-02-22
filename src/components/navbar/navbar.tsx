@@ -36,8 +36,6 @@ const Navbar = () => {
     });
   };
 
-  const navScrollEl = document.getElementById("routes_wrapper");
-
   return (
     <nav
       style={{
