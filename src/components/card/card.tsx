@@ -1,7 +1,11 @@
 import Grid from "@mui/material/Grid";
-import { IconVerified } from "./card.style";
+// import useElementSize from "../../hooks/useElementSize";
+import { CardWrapper, IconVerified } from "./card.style";
 
 const Card = () => {
+  // const [cardRef, cardRefSize] = useElementSize();
+  // const [descriptionRef, descriptionRefSize] = useElementSize();
+
   return (
     <div
       style={{
@@ -12,6 +16,7 @@ const Card = () => {
         borderRadius: "6px",
         padding: "16px",
         boxShadow: "0px 3px 10px 2px rgba(0, 0, 0, 0.4)",
+        cursor: "pointer",
       }}
     >
       <Grid container style={{ height: "100%" }}>
@@ -28,7 +33,7 @@ const Card = () => {
             src="https://i.redd.it/zipsd227ktx61.jpg"
             alt=""
           />
-          <div
+          <CardWrapper
             style={{
               marginLeft: "16px",
               display: "flex",
@@ -38,18 +43,12 @@ const Card = () => {
           >
             <div>
               <div>
-                <span
-                  style={{
-                    fontSize: "24px",
-                    lineBreak: "auto",
-                    fontWeight: "bold",
-                  }}
-                >
+                <span className="title">
                   Which of this stadiums are the most beautiful in the world?
                 </span>
               </div>
               <div style={{ marginTop: "8px" }}>
-                <span style={{ fontSize: "16px", lineBreak: "auto" }}>
+                <span className="description">
                   Football is not only an aggressive sport. It can be beautiful.
                   Design of the football arena can either boost the mood of
                   football players. So, go through and vote for the most
@@ -70,7 +69,7 @@ const Card = () => {
                 Official content
               </span>
             </div>
-          </div>
+          </CardWrapper>
         </div>
       </Grid>
     </div>
