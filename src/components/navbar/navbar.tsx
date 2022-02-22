@@ -35,6 +35,8 @@ const Navbar = () => {
     });
   };
 
+  const navScrollEl = document.getElementById("routes_wrapper");
+
   return (
     <nav
       style={{
@@ -142,7 +144,7 @@ const Navbar = () => {
             }}
           />
 
-          <NavRoutesDivInside ref={navRoutesWrapperRef}>
+          <NavRoutesDivInside ref={navRoutesWrapperRef} id="routes_wrapper">
             <NavRoutes
               selected={searchParams.get("topic") === "trending"}
               onClick={() => pushRoute("home", "topic", "trending")}

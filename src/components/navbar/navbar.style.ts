@@ -96,6 +96,7 @@ export const RightGradient = styled.div`
   height: 100%;
   width: 30px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), #343746);
+  pointer-events: none;
 `;
 
 export const LeftGradient = styled.div`
@@ -106,6 +107,7 @@ export const LeftGradient = styled.div`
   height: 100%;
   width: 30px;
   background: linear-gradient(-90deg, rgba(255, 255, 255, 0), #343746);
+  pointer-events: none;
 `;
 
 export const NavRoutesDivInside = styled.div`
