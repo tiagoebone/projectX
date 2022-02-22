@@ -74,7 +74,7 @@ const Navbar = () => {
               alignItems: "center",
             }}
           >
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -82,13 +82,11 @@ const Navbar = () => {
               }}
             >
               <IconMenu />
-            </div>
+            </div> */}
 
-            <div style={{ marginLeft: "16px" }}>
-              <Logo onClick={() => navigate("/")}>
-                <span>which is</span>
-              </Logo>
-            </div>
+            <Logo onClick={() => navigate("/")}>
+              <span>which is</span>
+            </Logo>
           </div>
           <HeaderRightOptions>
             <div onClick={() => navigate("/search")}>
