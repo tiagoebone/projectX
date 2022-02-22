@@ -33,9 +33,11 @@ export const NavRoutes = styled.div<{ selected?: boolean }>`
     color: #fff;
   }
 
-  &:hover {
-    span {
-      color: #b0b2ff;
+  @media (hover: hover) {
+    &:hover {
+      span {
+        color: #b0b2ff;
+      }
     }
   }
 
@@ -53,8 +55,10 @@ export const IconSearch = styled(SearchIcon)`
   color: #fff;
   transition: 200ms;
 
-  &:hover {
-    color: #b0b2ff;
+  @media (hover: hover) {
+    &:hover {
+      color: #b0b2ff;
+    }
   }
 `;
 
@@ -63,8 +67,10 @@ export const IconSetting = styled(SettingsIcon)`
   color: #fff;
   transition: 200ms;
 
-  &:hover {
-    color: #b0b2ff;
+  @media (hover: hover) {
+    &:hover {
+      color: #b0b2ff;
+    }
   }
 `;
 
@@ -73,8 +79,10 @@ export const IconMenu = styled(MenuIcon)`
   color: #fff;
   transition: 200ms;
 
-  &:hover {
-    color: #b0b2ff;
+  @media (hover: hover) {
+    &:hover {
+      color: #b0b2ff;
+    }
   }
 `;
 
@@ -83,8 +91,10 @@ export const IconUser = styled(AccountCircleIcon)`
   color: #fff;
   transition: 200ms;
 
-  &:hover {
-    color: #b0b2ff;
+  @media (hover: hover) {
+    &:hover {
+      color: #b0b2ff;
+    }
   }
 `;
 
@@ -118,5 +128,17 @@ export const NavRoutesDivInside = styled.div`
   overflow: auto;
   ::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const HeaderRightOptions = styled.div`
+  display: flex;
+  width: 60px;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    align-items: center;
   }
 `;

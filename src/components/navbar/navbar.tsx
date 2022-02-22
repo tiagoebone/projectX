@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import useElementScrollLeft from "../../hooks/useElementScroll";
 import {
+  HeaderRightOptions,
   IconMenu,
   IconSearch,
   IconUser,
@@ -91,21 +92,14 @@ const Navbar = () => {
               </Logo>
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              width: "60px",
-              justifyContent: "space-between",
-            }}
-          >
-            <NavRoutes onClick={() => navigate("/search")}>
+          <HeaderRightOptions>
+            <div onClick={() => navigate("/search")}>
               <IconSearch />
-            </NavRoutes>
-            <NavRoutes onClick={() => alert("open user/login")}>
+            </div>
+            <div onClick={() => alert("open user/login")}>
               <IconUser />
-            </NavRoutes>
-          </div>
+            </div>
+          </HeaderRightOptions>
         </Grid>
         <Grid
           item
