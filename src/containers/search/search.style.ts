@@ -56,3 +56,12 @@ export const InputStyled = styled.div`
     border: none;
   }
 `;
+
+export const BottomGradient = styled.div`
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #21222c);
+  position: fixed;
+  bottom: 16px;
+  z-index: 10;
+`;

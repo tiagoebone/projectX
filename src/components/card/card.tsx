@@ -76,7 +76,7 @@ const Card = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginTop: "4px",
+                justifyContent: "flex-end",
               }}
             >
               <IconVerified />

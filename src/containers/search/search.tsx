@@ -1,6 +1,11 @@
 import React from "react";
 import Card from "../../components/card/card";
-import { IconClear, IconSearch, InputStyled } from "./search.style";
+import {
+  BottomGradient,
+  IconClear,
+  IconSearch,
+  InputStyled,
+} from "./search.style";
 import Grid from "@mui/material/Grid";
 
 const Search = () => {
@@ -15,6 +20,8 @@ const Search = () => {
       searchInputRef.current.focus();
     }
   }, [searchInputRef]);
+
+  const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
     <div
@@ -66,7 +73,18 @@ const Search = () => {
               </span>
             </Grid>
             <Grid item xs={12}>
-              <Card />
+              <BottomGradient />
+              <Grid
+                container
+                spacing={2}
+                style={{ overflow: "auto", height: "calc(100vh - 250px)" }}
+              >
+                {cardTest.map((it) => (
+                  <Grid item xs={12} key={it}>
+                    <Card />
+                  </Grid>
+                ))}
+              </Grid>
             </Grid>
           </>
         )}
