@@ -9,17 +9,14 @@ const Card = () => {
   return (
     <div
       style={{
-        height: "20vh",
-        minHeight: "110px",
-        maxHeight: "210px",
+        minHeight: "96px",
         backgroundColor: "#fff",
         borderRadius: "6px",
-        padding: "16px",
         boxShadow: "0px 3px 10px 2px rgba(0, 0, 0, 0.4)",
         cursor: "pointer",
       }}
     >
-      <Grid container style={{ height: "100%" }}>
+      <Grid container style={{ height: "100%", padding: "16px" }}>
         <div
           style={{
             height: "100%",
@@ -29,7 +26,12 @@ const Card = () => {
           }}
         >
           <img
-            style={{ height: "100%", borderRadius: "6px" }}
+            style={{
+              width: "200px",
+              borderRadius: "6px",
+              height: "auto",
+              maxHeight: "100%",
+            }}
             src="https://i.redd.it/zipsd227ktx61.jpg"
             alt=""
           />
@@ -57,7 +59,13 @@ const Card = () => {
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "4px",
+              }}
+            >
               <IconVerified />
               <span
                 style={{
