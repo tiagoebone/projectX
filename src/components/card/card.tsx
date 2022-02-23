@@ -1,10 +1,14 @@
 import Grid from "@mui/material/Grid";
+import { useWindowSize } from "../../hooks/useWindowSize";
 // import useElementSize from "../../hooks/useElementSize";
 import { CardWrapper, IconVerified } from "./card.style";
 
 const Card = () => {
   // const [cardRef, cardRefSize] = useElementSize();
   // const [descriptionRef, descriptionRefSize] = useElementSize();
+  const size = useWindowSize();
+
+  const width: number = size.width || 1920;
 
   return (
     <div
@@ -25,16 +29,23 @@ const Card = () => {
             justifyContent: "space-between",
           }}
         >
-          <img
+          <div
             style={{
-              width: "200px",
+              maxWidth: "30%",
+              minWidth: "100px",
               borderRadius: "6px",
-              height: "auto",
-              maxHeight: "100%",
             }}
-            src="https://i.redd.it/zipsd227ktx61.jpg"
-            alt=""
-          />
+          >
+            <img
+              style={{
+                width: "100%",
+                borderRadius: "6px",
+              }}
+              src="https://i.redd.it/zipsd227ktx61.jpg"
+              alt=""
+            />
+          </div>
+
           <CardWrapper
             style={{
               marginLeft: "16px",
@@ -49,14 +60,16 @@ const Card = () => {
                   Which of this stadiums are the most beautiful in the world?
                 </span>
               </div>
-              <div style={{ marginTop: "8px" }}>
-                <span className="description">
-                  Football is not only an aggressive sport. It can be beautiful.
-                  Design of the football arena can either boost the mood of
-                  football players. So, go through and vote for the most
-                  beautiful one.
-                </span>
-              </div>
+              {width > 480 && (
+                <div style={{ marginTop: "8px" }}>
+                  <span className="description">
+                    Football is not only an aggressive sport. It can be
+                    beautiful. Design of the football arena can either boost the
+                    mood of football players. So, go through and vote for the
+                    most beautiful one.
+                  </span>
+                </div>
+              )}
             </div>
 
             <div
@@ -67,15 +80,7 @@ const Card = () => {
               }}
             >
               <IconVerified />
-              <span
-                style={{
-                  fontSize: "14px",
-                  lineBreak: "auto",
-                  color: "#b0b2ff",
-                }}
-              >
-                Official content
-              </span>
+              <span className="content_type">Official content</span>
             </div>
           </CardWrapper>
         </div>
