@@ -50,7 +50,7 @@ const Search = () => {
             marginTop:
               scrollDirectionY === "down"
                 ? scrollBottom > 199
-                  ? scrollDirectionY === "down" && scrollTop > 299
+                  ? scrollTop > 299
                     ? "-104px"
                     : "0px"
                   : "-104px"
@@ -58,7 +58,7 @@ const Search = () => {
             opacity:
               scrollDirectionY === "down"
                 ? scrollBottom > 199
-                  ? scrollDirectionY === "down" && scrollTop > 299
+                  ? scrollTop > 299
                     ? 0
                     : 1
                   : 0
@@ -110,7 +110,7 @@ const Search = () => {
                 height:
                   scrollDirectionY === "down"
                     ? scrollBottom > 199
-                      ? scrollDirectionY === "down" && scrollTop > 299
+                      ? scrollTop > 299
                         ? "calc(100vh - 148px)"
                         : "calc(100vh - 282px)"
                       : "calc(100vh - 148px)"
