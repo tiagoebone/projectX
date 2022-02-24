@@ -48,7 +48,7 @@ const Search = () => {
             width: "100%",
             marginTop: scrollDirectionY === "down" ? "-134px" : "00px",
             opacity: scrollDirectionY === "down" ? 0 : 1,
-            transition: "300ms",
+            transition: "150ms",
           }}
         >
           <Grid item xs={12} style={{ padding: "24px 0px" }}>
@@ -93,8 +93,8 @@ const Search = () => {
               style={{
                 height:
                   scrollDirectionY === "down"
-                    ? "calc(100vh - 168px)"
-                    : "calc(100vh - 302px)",
+                    ? "calc(100vh - 148px)"
+                    : "calc(100vh - 282px)",
               }}
             >
               {cardTest.map((it) => (
