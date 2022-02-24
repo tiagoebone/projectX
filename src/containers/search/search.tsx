@@ -95,8 +95,8 @@ const Search = () => {
               style={{
                 height:
                   scrollDirectionY === "down"
-                    ? "calc(100vh - 132px)"
-                    : "calc(100vh - 250px)",
+                    ? "calc(100vh - 140px)"
+                    : "calc(100vh - 262px)",
               }}
             >
               {cardTest.map((it) => (
