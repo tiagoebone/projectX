@@ -22,9 +22,10 @@ const Search = () => {
     }
   }, [searchInputRef]);
 
-  const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
-  const [cardWrapperRef, { scrollDirectionY, scrollTop }] = useElementScroll();
+  const [cardWrapperRef, { scrollDirectionY, scrollTop, scrollBottom }] =
+    useElementScroll();
 
   return (
     <div
@@ -47,10 +48,17 @@ const Search = () => {
           style={{
             width: "100%",
             marginTop:
-              scrollDirectionY === "down" && scrollTop > 299
-                ? "-134px"
-                : "00px",
-            opacity: scrollDirectionY === "down" && scrollTop > 299 ? 0 : 1,
+              scrollBottom > 199
+                ? scrollDirectionY === "down" && scrollTop > 299
+                  ? "-104px"
+                  : "0px"
+                : "-104px",
+            opacity:
+              scrollBottom > 199
+                ? scrollDirectionY === "down" && scrollTop > 299
+                  ? 0
+                  : 1
+                : 0,
             transition: "400ms",
           }}
         >
@@ -73,20 +81,21 @@ const Search = () => {
               )}
             </InputStyled>
           </Grid>
-          {!!searchText && (
-            <Grid
-              item
-              xs={12}
-              style={{
-                marginBottom: "16px",
-              }}
-            >
-              <span style={{ fontSize: "22px", color: "#fff" }}>
-                Results for "{searchText}"
-              </span>
-            </Grid>
-          )}
         </div>
+        {!!searchText && (
+          <Grid
+            item
+            xs={12}
+            style={{
+              marginBottom: "16px",
+            }}
+          >
+            <span style={{ fontSize: "22px", color: "#fff" }}>
+              Results for "{searchText}"
+            </span>
+          </Grid>
+        )}
+
         {!!searchText && (
           <Grid item xs={12}>
             <CardsContainer
@@ -95,9 +104,11 @@ const Search = () => {
               ref={cardWrapperRef}
               style={{
                 height:
-                  scrollDirectionY === "down" && scrollTop > 299
-                    ? "calc(100vh - 148px)"
-                    : "calc(100vh - 282px)",
+                  scrollBottom > 199
+                    ? scrollDirectionY === "down" && scrollTop > 299
+                      ? "calc(100vh - 148px)"
+                      : "calc(100vh - 282px)"
+                    : "calc(100vh - 148px)",
               }}
             >
               {cardTest.map((it) => (
