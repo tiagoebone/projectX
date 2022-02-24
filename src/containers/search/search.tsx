@@ -24,7 +24,7 @@ const Search = () => {
 
   const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const [cardWrapperRef, { scrollDirectionY }] = useElementScroll();
+  const [cardWrapperRef, { scrollDirectionY, scrollTop }] = useElementScroll();
 
   return (
     <div
@@ -46,9 +46,12 @@ const Search = () => {
         <div
           style={{
             width: "100%",
-            marginTop: scrollDirectionY === "down" ? "-134px" : "00px",
-            opacity: scrollDirectionY === "down" ? 0 : 1,
-            transition: "150ms",
+            marginTop:
+              scrollDirectionY === "down" && scrollTop > 299
+                ? "-134px"
+                : "00px",
+            opacity: scrollDirectionY === "down" && scrollTop > 299 ? 0 : 1,
+            transition: "400ms",
           }}
         >
           <Grid item xs={12} style={{ padding: "24px 0px" }}>
@@ -92,7 +95,7 @@ const Search = () => {
               ref={cardWrapperRef}
               style={{
                 height:
-                  scrollDirectionY === "down"
+                  scrollDirectionY === "down" && scrollTop > 299
                     ? "calc(100vh - 148px)"
                     : "calc(100vh - 282px)",
               }}
