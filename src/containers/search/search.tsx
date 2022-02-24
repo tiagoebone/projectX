@@ -77,7 +77,11 @@ const Search = () => {
               <Grid
                 container
                 spacing={2}
-                style={{ overflow: "auto", height: "calc(100vh - 250px)" }}
+                style={{
+                  overflowY: "scroll",
+                  height: "calc(100vh - 250px)",
+                  padding: "0 16px 0 0",
+                }}
               >
                 {cardTest.map((it) => (
                   <Grid item xs={12} key={it}>

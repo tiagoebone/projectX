@@ -62,6 +62,6 @@ export const BottomGradient = styled.div`
   height: 20px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0), #21222c);
   position: fixed;
-  bottom: 16px;
+  bottom: 0;
   z-index: 10;
 `;
