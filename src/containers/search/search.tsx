@@ -48,17 +48,21 @@ const Search = () => {
           style={{
             width: "100%",
             marginTop:
-              scrollBottom > 199
-                ? scrollDirectionY === "down" && scrollTop > 299
-                  ? "-104px"
-                  : "0px"
-                : "-104px",
+              scrollDirectionY === "down"
+                ? scrollBottom > 199
+                  ? scrollDirectionY === "down" && scrollTop > 299
+                    ? "-104px"
+                    : "0px"
+                  : "-104px"
+                : "0px",
             opacity:
-              scrollBottom > 199
-                ? scrollDirectionY === "down" && scrollTop > 299
-                  ? 0
-                  : 1
-                : 0,
+              scrollDirectionY === "down"
+                ? scrollBottom > 199
+                  ? scrollDirectionY === "down" && scrollTop > 299
+                    ? 0
+                    : 1
+                  : 0
+                : 1,
             transition: "400ms",
           }}
         >
@@ -104,11 +108,13 @@ const Search = () => {
               ref={cardWrapperRef}
               style={{
                 height:
-                  scrollBottom > 199
-                    ? scrollDirectionY === "down" && scrollTop > 299
-                      ? "calc(100vh - 148px)"
-                      : "calc(100vh - 282px)"
-                    : "calc(100vh - 148px)",
+                  scrollDirectionY === "down"
+                    ? scrollBottom > 199
+                      ? scrollDirectionY === "down" && scrollTop > 299
+                        ? "calc(100vh - 148px)"
+                        : "calc(100vh - 282px)"
+                      : "calc(100vh - 148px)"
+                    : "calc(100vh - 282px)",
               }}
             >
               {cardTest.map((it) => (
