@@ -51,9 +51,9 @@ const Search = () => {
               scrollDirectionY === "down"
                 ? scrollBottom > 199
                   ? scrollTop > 299
-                    ? "-104px"
+                    ? "-130px"
                     : "0px"
-                  : "-104px"
+                  : "-130px"
                 : "0px",
             opacity:
               scrollDirectionY === "down"
@@ -85,20 +85,21 @@ const Search = () => {
               )}
             </InputStyled>
           </Grid>
+
+          {!!searchText && (
+            <Grid
+              item
+              xs={12}
+              style={{
+                marginBottom: "16px",
+              }}
+            >
+              <span style={{ fontSize: "22px", color: "#fff" }}>
+                Results for "{searchText}"
+              </span>
+            </Grid>
+          )}
         </div>
-        {!!searchText && (
-          <Grid
-            item
-            xs={12}
-            style={{
-              marginBottom: "16px",
-            }}
-          >
-            <span style={{ fontSize: "22px", color: "#fff" }}>
-              Results for "{searchText}"
-            </span>
-          </Grid>
-        )}
 
         {!!searchText && (
           <Grid item xs={12}>
