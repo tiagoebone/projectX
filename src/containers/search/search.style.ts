@@ -60,6 +60,7 @@ export const InputStyled = styled.div`
 
 export const CardsContainer = styled(Grid)`
   overflow: auto;
+  transition: 300ms;
 
   @media screen and (max-width: 1920px) {
     padding: 0 8px 0 0;

@@ -26,8 +26,6 @@ const Search = () => {
 
   const [cardWrapperRef, { scrollDirectionY }] = useElementScroll();
 
-  console.log(scrollDirectionY);
-
   return (
     <div
       style={{
@@ -95,7 +93,7 @@ const Search = () => {
               style={{
                 height:
                   scrollDirectionY === "down"
-                    ? "calc(100vh - 140px)"
+                    ? "calc(100vh - 128px)"
                     : "calc(100vh - 262px)",
               }}
             >
