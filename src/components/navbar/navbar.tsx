@@ -4,7 +4,7 @@ import {
   createSearchParams,
   useSearchParams,
 } from "react-router-dom";
-import useElementScrollLeft from "../../hooks/useElementScroll";
+import useElementScroll from "../../hooks/useElementScroll";
 import {
   HeaderRightOptions,
   // IconMenu,
@@ -21,7 +21,7 @@ const Navbar = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScrollLeft();
+  const [navRoutesWrapperRef, navRoutesWrapperScroll] = useElementScroll();
 
   const pushRoute = (
     pathname: string,

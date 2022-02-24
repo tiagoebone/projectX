@@ -1,12 +1,13 @@
 import React from "react";
 import Card from "../../components/card/card";
 import {
-  BottomGradient,
+  CardsContainer,
   IconClear,
   IconSearch,
   InputStyled,
 } from "./search.style";
 import Grid from "@mui/material/Grid";
+import useElementScroll from "../../hooks/useElementScroll";
 
 const Search = () => {
   const [searchText, setSearchText] = React.useState<string>("");
@@ -23,6 +24,8 @@ const Search = () => {
 
   const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  const [cardWrapperRef, cardWrapperScrollValues] = useElementScroll();
+  console.log(cardWrapperScrollValues);
   return (
     <div
       style={{
@@ -73,22 +76,13 @@ const Search = () => {
               </span>
             </Grid>
             <Grid item xs={12}>
-              <BottomGradient />
-              <Grid
-                container
-                spacing={2}
-                style={{
-                  overflowY: "scroll",
-                  height: "calc(100vh - 250px)",
-                  padding: "0 16px 0 0",
-                }}
-              >
+              <CardsContainer container spacing={2} ref={cardWrapperRef}>
                 {cardTest.map((it) => (
                   <Grid item xs={12} key={it}>
                     <Card />
                   </Grid>
                 ))}
-              </Grid>
+              </CardsContainer>
             </Grid>
           </>
         )}

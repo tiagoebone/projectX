@@ -3,10 +3,11 @@ import { useCallback, useState, useEffect } from "react";
 interface Scroll {
   scrollLeft: number;
   scrollRight: number;
-  scrollHeight: number;
+  scrollTop: number;
+  scrollBottom: number;
 }
 
-function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
+function useElementScroll<T extends HTMLElement = HTMLDivElement>(): [
   (node: T | null) => void,
   Scroll
 ] {
@@ -14,7 +15,8 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
   const [scroll, setScroll] = useState<Scroll>({
     scrollLeft: 0,
     scrollRight: 0,
-    scrollHeight: 0,
+    scrollTop: 0,
+    scrollBottom: 0,
   });
 
   const handleScrollLeft = useCallback(() => {
@@ -22,15 +24,25 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
       ref?.scrollLeft !== undefined &&
       ref?.scrollWidth !== undefined &&
       ref?.scrollHeight !== undefined &&
-      ref?.offsetWidth !== undefined
+      ref?.scrollTop !== undefined &&
+      ref?.offsetWidth !== undefined &&
+      ref?.offsetHeight !== undefined
     ) {
       setScroll({
         scrollLeft: ref.scrollLeft,
         scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
-        scrollHeight: ref.scrollHeight,
+        scrollTop: ref.scrollTop,
+        scrollBottom: ref.scrollHeight - ref.scrollTop - ref.offsetHeight,
       });
     }
-  }, [ref?.scrollLeft, ref?.scrollHeight, ref?.scrollWidth, ref?.offsetWidth]);
+  }, [
+    ref?.scrollLeft,
+    ref?.scrollHeight,
+    ref?.scrollWidth,
+    ref?.offsetWidth,
+    ref?.scrollTop,
+    ref?.offsetHeight,
+  ]);
 
   useEffect(() => {
     ref?.addEventListener("scroll", handleScrollLeft);
@@ -43,21 +55,24 @@ function useElementScrollLeft<T extends HTMLElement = HTMLDivElement>(): [
       ref?.scrollLeft !== undefined &&
       ref?.scrollWidth !== undefined &&
       ref?.scrollHeight !== undefined &&
-      ref?.offsetWidth !== undefined
+      ref?.scrollTop !== undefined &&
+      ref?.offsetWidth !== undefined &&
+      ref?.offsetHeight !== undefined
     ) {
       setScroll({
         scrollLeft: ref.scrollLeft,
         scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
-        scrollHeight: ref.scrollHeight,
+        scrollTop: ref.scrollTop,
+        scrollBottom: ref.scrollHeight - ref.scrollTop - ref.offsetHeight,
       });
     }
     // eslint-disable-next-line
-  }, [ref?.scrollWidth]);
+  }, [ref?.scrollWidth, ref?.scrollHeight]);
 
   return [setRef, scroll];
 }
 
-export default useElementScrollLeft;
+export default useElementScroll;
 
 //usage
 // const [squareRef, { width, height }] = useElementSize()

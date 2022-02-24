@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import Grid from "@mui/material/Grid";
 
 export const IconSearch = styled(SearchIcon)`
   cursor: pointer;
@@ -57,11 +58,18 @@ export const InputStyled = styled.div`
   }
 `;
 
-export const BottomGradient = styled.div`
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #21222c);
-  position: fixed;
-  bottom: 0;
-  z-index: 10;
+export const CardsContainer = styled(Grid)`
+  height: calc(100vh - 250px);
+  overflow: auto;
+
+  @media screen and (max-width: 1920px) {
+    padding: 0 8px 0 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    padding: 0;
+  }
 `;
