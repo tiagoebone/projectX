@@ -24,8 +24,10 @@ const Search = () => {
 
   const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const [cardWrapperRef, cardWrapperScrollValues] = useElementScroll();
-  console.log(cardWrapperScrollValues);
+  const [cardWrapperRef, { scrollDirectionY }] = useElementScroll();
+
+  console.log(scrollDirectionY);
+
   return (
     <div
       style={{
@@ -43,27 +45,34 @@ const Search = () => {
           maxWidth: "768px",
         }}
       >
-        <Grid item xs={12} style={{ padding: "24px 0px" }}>
-          <InputStyled title="Clear search">
-            <div className="startAdorment">
-              <IconSearch />
-            </div>
-            <input
-              ref={searchInputRef}
-              type="text"
-              placeholder="Search"
-              autoFocus
-              onChange={(e) => setSearchText(e.currentTarget.value)}
-            />
-            {!!searchText && (
-              <div className="endAdorment" onClick={handleClearSearchClick}>
-                <IconClear />
+        <div
+          style={{
+            width: "100%",
+            marginTop: scrollDirectionY === "down" ? "-134px" : "00px",
+            opacity: scrollDirectionY === "down" ? 0 : 1,
+            transition: "300ms",
+          }}
+        >
+          <Grid item xs={12} style={{ padding: "24px 0px" }}>
+            <InputStyled title="Clear search">
+              <div className="startAdorment">
+                <IconSearch />
               </div>
-            )}
-          </InputStyled>
-        </Grid>
-        {!!searchText && (
-          <>
+              <input
+                ref={searchInputRef}
+                type="text"
+                placeholder="Search"
+                autoFocus
+                onChange={(e) => setSearchText(e.currentTarget.value)}
+              />
+              {!!searchText && (
+                <div className="endAdorment" onClick={handleClearSearchClick}>
+                  <IconClear />
+                </div>
+              )}
+            </InputStyled>
+          </Grid>
+          {!!searchText && (
             <Grid
               item
               xs={12}
@@ -75,16 +84,28 @@ const Search = () => {
                 Results for "{searchText}"
               </span>
             </Grid>
-            <Grid item xs={12}>
-              <CardsContainer container spacing={2} ref={cardWrapperRef}>
-                {cardTest.map((it) => (
-                  <Grid item xs={12} key={it}>
-                    <Card />
-                  </Grid>
-                ))}
-              </CardsContainer>
-            </Grid>
-          </>
+          )}
+        </div>
+        {!!searchText && (
+          <Grid item xs={12}>
+            <CardsContainer
+              container
+              spacing={2}
+              ref={cardWrapperRef}
+              style={{
+                height:
+                  scrollDirectionY === "down"
+                    ? "calc(100vh - 132px)"
+                    : "calc(100vh - 250px)",
+              }}
+            >
+              {cardTest.map((it) => (
+                <Grid item xs={12} key={it}>
+                  <Card />
+                </Grid>
+              ))}
+            </CardsContainer>
+          </Grid>
         )}
       </Grid>
     </div>

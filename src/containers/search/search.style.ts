@@ -59,7 +59,6 @@ export const InputStyled = styled.div`
 `;
 
 export const CardsContainer = styled(Grid)`
-  height: calc(100vh - 250px);
   overflow: auto;
 
   @media screen and (max-width: 1920px) {
