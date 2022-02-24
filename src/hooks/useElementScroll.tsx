@@ -5,6 +5,8 @@ interface Scroll {
   scrollRight: number;
   scrollTop: number;
   scrollBottom: number;
+  scrollDirectionY: "up" | "down" | "none";
+  scrollDirectionX: "right" | "left" | "none";
 }
 
 function useElementScroll<T extends HTMLElement = HTMLDivElement>(): [
@@ -17,6 +19,8 @@ function useElementScroll<T extends HTMLElement = HTMLDivElement>(): [
     scrollRight: 0,
     scrollTop: 0,
     scrollBottom: 0,
+    scrollDirectionY: "none",
+    scrollDirectionX: "none",
   });
 
   const handleScrollLeft = useCallback(() => {
@@ -28,12 +32,14 @@ function useElementScroll<T extends HTMLElement = HTMLDivElement>(): [
       ref?.offsetWidth !== undefined &&
       ref?.offsetHeight !== undefined
     ) {
-      setScroll({
+      setScroll((prev) => ({
         scrollLeft: ref.scrollLeft,
         scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
         scrollTop: ref.scrollTop,
         scrollBottom: ref.scrollHeight - ref.scrollTop - ref.offsetHeight,
-      });
+        scrollDirectionY: prev.scrollTop < ref.scrollTop ? "down" : "up",
+        scrollDirectionX: prev.scrollLeft < ref.scrollLeft ? "right" : "left",
+      }));
     }
   }, [
     ref?.scrollLeft,
@@ -59,12 +65,14 @@ function useElementScroll<T extends HTMLElement = HTMLDivElement>(): [
       ref?.offsetWidth !== undefined &&
       ref?.offsetHeight !== undefined
     ) {
-      setScroll({
+      setScroll((prev) => ({
         scrollLeft: ref.scrollLeft,
         scrollRight: ref.scrollWidth - ref.scrollLeft - ref.offsetWidth,
         scrollTop: ref.scrollTop,
         scrollBottom: ref.scrollHeight - ref.scrollTop - ref.offsetHeight,
-      });
+        scrollDirectionY: prev.scrollTop < ref.scrollTop ? "down" : "up",
+        scrollDirectionX: prev.scrollLeft < ref.scrollLeft ? "right" : "left",
+      }));
     }
     // eslint-disable-next-line
   }, [ref?.scrollWidth, ref?.scrollHeight]);
