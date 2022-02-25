@@ -35,7 +35,7 @@ const Search = () => {
   );
 
   React.useEffect(() => {
-    if (scrollBottom > 399 && scrollTop > 299) {
+    if (scrollBottom > 199 && scrollTop > 299) {
       setScrollDirec(scrollDirectionY);
     }
   }, [scrollDirectionY, scrollBottom, scrollTop]);
