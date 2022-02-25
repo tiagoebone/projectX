@@ -22,7 +22,10 @@ const Search = () => {
     }
   }, [searchInputRef]);
 
-  const cardTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+  const cardTest = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24,
+  ];
 
   const [cardWrapperRef, { scrollDirectionY, scrollTop, scrollBottom }] =
     useElementScroll();
@@ -49,16 +52,16 @@ const Search = () => {
             width: "100%",
             marginTop:
               scrollDirectionY === "down"
-                ? scrollBottom > 199
-                  ? scrollTop > 299
+                ? scrollBottom > 399
+                  ? scrollTop > 399
                     ? "-130px"
                     : "0px"
                   : "-130px"
                 : "0px",
             opacity:
               scrollDirectionY === "down"
-                ? scrollBottom > 199
-                  ? scrollTop > 299
+                ? scrollBottom > 399
+                  ? scrollTop > 399
                     ? 0
                     : 1
                   : 0
@@ -110,8 +113,8 @@ const Search = () => {
               style={{
                 height:
                   scrollDirectionY === "down"
-                    ? scrollBottom > 199
-                      ? scrollTop > 299
+                    ? scrollBottom > 399
+                      ? scrollTop > 399
                         ? "calc(100vh - 148px)"
                         : "calc(100vh - 282px)"
                       : "calc(100vh - 148px)"
