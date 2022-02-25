@@ -60,7 +60,9 @@ const Search = () => {
         <div
           style={{
             width: "100%",
-            marginTop: scrollDirec === "down" ? "-134px" : "0px",
+            // marginTop: scrollDirec === "down" ? "-134px" : "0px",
+            height: scrollDirec === "down" ? "0px" : "129px",
+            opacity: scrollDirec === "down" ? 0 : 1,
             transition: "400ms",
           }}
         >
