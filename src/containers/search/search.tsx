@@ -34,21 +34,11 @@ const Search = () => {
     "up"
   );
 
-  const [hideSearch, setHideSearch] = React.useState(false);
-
   React.useEffect(() => {
     if (scrollBottom > 199 && scrollTop > 299) {
       setScrollDirec(scrollDirectionY);
     }
   }, [scrollDirectionY, scrollBottom, scrollTop]);
-
-  React.useEffect(() => {
-    if (scrollDirec === "down") {
-      setTimeout(() => setHideSearch(true), 400);
-    } else {
-      setHideSearch(false);
-    }
-  }, [scrollDirec]);
 
   return (
     <div
@@ -72,7 +62,6 @@ const Search = () => {
             width: "100%",
             marginTop: scrollDirec === "down" ? "-134px" : "0px",
             transition: "400ms",
-            display: hideSearch ? "none" : "initial",
           }}
         >
           <Grid item xs={12} style={{ padding: "24px 0px 12px 0px" }}>
