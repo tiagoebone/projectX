@@ -30,6 +30,16 @@ const Search = () => {
   const [cardWrapperRef, { scrollDirectionY, scrollTop, scrollBottom }] =
     useElementScroll();
 
+  const [scrollDirec, setScrollDirec] = React.useState<"up" | "down" | "none">(
+    "up"
+  );
+
+  React.useEffect(() => {
+    if (scrollBottom > 299 && scrollTop > 299) {
+      setScrollDirec(scrollDirectionY);
+    }
+  }, [scrollDirectionY, scrollBottom, scrollTop]);
+
   return (
     <div
       style={{
@@ -50,22 +60,7 @@ const Search = () => {
         <div
           style={{
             width: "100%",
-            marginTop:
-              scrollDirectionY === "down"
-                ? scrollBottom > 399
-                  ? scrollTop > 399
-                    ? "-130px"
-                    : "0px"
-                  : "-130px"
-                : "0px",
-            opacity:
-              scrollDirectionY === "down"
-                ? scrollBottom > 399
-                  ? scrollTop > 399
-                    ? 0
-                    : 1
-                  : 0
-                : 1,
+            marginTop: scrollDirec === "down" ? "-130px" : "0px",
             transition: "400ms",
           }}
         >
@@ -112,12 +107,8 @@ const Search = () => {
               ref={cardWrapperRef}
               style={{
                 height:
-                  scrollDirectionY === "down"
-                    ? scrollBottom > 399
-                      ? scrollTop > 399
-                        ? "calc(100vh - 148px)"
-                        : "calc(100vh - 282px)"
-                      : "calc(100vh - 148px)"
+                  scrollDirec === "down"
+                    ? "calc(100vh - 148px)"
                     : "calc(100vh - 282px)",
               }}
             >
