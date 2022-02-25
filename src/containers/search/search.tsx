@@ -35,7 +35,7 @@ const Search = () => {
   );
 
   React.useEffect(() => {
-    if (scrollBottom > 299 && scrollTop > 299) {
+    if (scrollBottom > 499 && scrollTop > 299) {
       setScrollDirec(scrollDirectionY);
     }
   }, [scrollDirectionY, scrollBottom, scrollTop]);
@@ -60,11 +60,11 @@ const Search = () => {
         <div
           style={{
             width: "100%",
-            marginTop: scrollDirec === "down" ? "-130px" : "0px",
+            marginTop: scrollDirec === "down" ? "-134px" : "0px",
             transition: "400ms",
           }}
         >
-          <Grid item xs={12} style={{ padding: "24px 0px" }}>
+          <Grid item xs={12} style={{ padding: "24px 0px 12px 0px" }}>
             <InputStyled title="Clear search">
               <div className="startAdorment">
                 <IconSearch />
@@ -103,17 +103,16 @@ const Search = () => {
           <Grid item xs={12}>
             <CardsContainer
               container
-              spacing={2}
               ref={cardWrapperRef}
               style={{
                 height:
                   scrollDirec === "down"
-                    ? "calc(100vh - 148px)"
-                    : "calc(100vh - 282px)",
+                    ? "calc(100vh - 126px)"
+                    : "calc(100vh - 256px)",
               }}
             >
               {cardTest.map((it) => (
-                <Grid item xs={12} key={it}>
+                <Grid item xs={12} key={it} style={{ marginBottom: "12px" }}>
                   <Card />
                 </Grid>
               ))}
