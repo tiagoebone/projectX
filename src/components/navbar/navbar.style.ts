@@ -20,36 +20,6 @@ export const Logo = styled.div`
   }
 `;
 
-export const NavRoutes = styled.div<{ selected?: boolean }>`
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  span {
-    transition: 200ms;
-    font-size: 18px;
-    color: #fff;
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      span {
-        color: #b0b2ff;
-      }
-    }
-  }
-
-  :after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background-color: ${({ selected }) =>
-      !!selected ? "#fff" : "transparent"};
-  }
-`;
-
 export const IconSearch = styled(SearchIcon)`
   cursor: pointer;
   color: #fff;
@@ -126,6 +96,8 @@ export const NavRoutesDivInside = styled.div`
   flex-direction: row;
   white-space: nowrap;
   overflow: auto;
+  gap: 16px;
+
   ::-webkit-scrollbar {
     display: none;
   }
